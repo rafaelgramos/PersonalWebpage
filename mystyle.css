@@ -71,6 +71,7 @@ body {
 	padding-bottom: 0;
 }
 .name {
+	font-size: 100%;
 	font-family: "Georgia";
 	padding-top: 20;
 	padding-left: 30;
@@ -82,6 +83,18 @@ body {
 }
 .name-body {
 	font-size:150%;
+}
+.name-occup-h1{
+	font-size:100%;
+}
+.name-h1 {
+	font-size: 225%;
+	font-weight: bold;
+}
+.occupation-h1 {
+	font-size:150%;
+	font-weight: normal;
+	display:block;
 }
 .contact-head {
 	padding-bottom: 5;

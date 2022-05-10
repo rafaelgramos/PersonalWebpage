@@ -1,0 +1,56 @@
+html {
+}
+body {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  height: 100% !important;
+}
+#mapcontainer {
+}
+#mymap {
+  padding-right: 0 !important;
+}
+#topbanner {
+  font-size: 150% !important;
+  font-style: bold !important;
+  font-family: Courier !important;
+  background-color: black !important;
+  color: white !important;
+  width: 100vw !important;
+  padding-top: 0.5% !important;
+  padding-bottom: 0.5% !important;
+  padding-left: 10px !important;
+  margin-left: 0 !important;
+}
+#mapcontrols {
+  padding-top: 0.5% !important;
+  padding-bottom: 0.5% !important;
+  padding-left: 10px !important;
+  margin-left: 0 !important;
+  height: initial !important;
+  position: fixed !important;
+  bottom: 0 !important;
+}
+@keyframes fade {
+  0% { 
+    opacity: 0.9;
+    width: 20px;
+    height: 20px;
+    margin: 0px;
+  }
+  100% {
+    opacity: 0.9;
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+  }
+}
+.blinking {
+  animation: fade 0.5s infinite alternate;
+}

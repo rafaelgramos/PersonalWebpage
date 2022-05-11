@@ -5,14 +5,14 @@
 @keyframes fade {
   0% { 
     opacity: 0.9;
-    width: 3em;
-    height: 3em;
+    width: 2.5em;
+    height: 2.5em;
     margin: 0em;
   }
   100% {
     opacity: 0.9;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2em;
+    height: 2em;
     margin: 0.25em;
   }
 }

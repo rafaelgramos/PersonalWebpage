@@ -1,6 +1,6 @@
 #top_banner{
    width: 100%;
-   height: min;
+   height: fit-content;
    background-color: black;
    color: white;
    font-size: 32;
@@ -8,13 +8,13 @@
    padding-left: 2.5%;
    padding-top: 1.5%;
    padding-bottom: 1%;
-   margin-left: -1%;
    margin-top: -1%;
+   margin-left: -1%;
    margin-right: -1%;
 }
 #map{
   width: 100%;
-  height: 100%;
+  height: 90%;
 }
 @keyframes fade {
   0% { 

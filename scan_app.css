@@ -1,9 +1,10 @@
+html, body { height: 100% }
 #top_banner{
    width: 100%;
    height: fit-content;
    background-color: black;
    color: white;
-   font-size: 32;
+   font-size: 2.5em;
    font-family: arial;
    padding-left: 2.5%;
    padding-top: 1.5%;

@@ -12,8 +12,6 @@ var my_icon = L.icon({
 
 var url_to_geotiff_file = "https://rafaelgramos.github.io/PersonalWebpage/SJC_robb_dens2010_2019.tiff";
 
-//alert("bla")
-
 function onError (err) {
 }
 
@@ -37,16 +35,32 @@ function onSuccess (position) {
         .then(response => response.arrayBuffer())
         .then(arrayBuffer => {
           parseGeoraster(arrayBuffer).then(georaster => {
-          //console.log("georaster:", georaster);
-          alert("oi")
-          //alert(GeoRasterLayer);
+          
+          const min = georaster.mins[0];
+          const max = georaster.maxs[0];
+          const range = georaster.ranges[0];
+          var scale = chroma.scale(['#0000ff','#fafa6e','#ff0000']);//chroma.scale("Viridis");
+          
           var layer = new GeoRasterLayer({
               georaster: georaster,
-              opacity: 0.7,
-              resolution: 64
-              //pixelValuesToColorFn: values => values[0] === 42 ? '#ffffff' : '#000000',
+              opacity: 0.5,
+              pixelValuesToColorFn: function(pixelValues) {
+                  var pixelValue = pixelValues[0]; // there's just one band in this raster
+
+                  // if there's zero wind, don't return a color
+                  if (pixelValue === 0) return null;
+
+                  // scale to 0 - 1 used by chroma
+                  var scaledPixelValue = (pixelValue - min) / range;
+
+                  var color = scale(scaledPixelValue).hex();
+
+                  return color;
+              },
+              resolution: 256
               //resolution: 64 // optional parameter for adjusting display resolution
           });
+          
           layer.addTo(map);
           //map.fitBounds(layer.getBounds());
     

@@ -1,85 +1,23 @@
-<head>
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <link rel="stylesheet" type = "text/css" href = "scan_app.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-    
-    <script src="leaflet-providers.js"></script>
-    
-    <!-- CDN references -->
-    <script src="//npmcdn.com/leaflet@1.2.0/dist/leaflet.js"></script>
-    
-    <script src="//d3js.org/d3.v4.min.js"></script>
-    <script src="//npmcdn.com/geotiff@0.3.6/dist/geotiff.js"></script> <!-- optional -->
-
-    <!-- Plugin -->
-    <script src="https://ihcantabria.github.io/Leaflet.CanvasLayer.Field/dist/leaflet.canvaslayer.field.js"></script>
-
-</head>
-<body>
-  <div id="top_banner">Scan</div>
-  <div id="map"></div>
-  <script>
-  
-    //location_coords = c("sao_jose_dos_campos_sp" = c(-45.8869400,-23.1794400),#c(-43.50044,-20.38571)
-    //                "campinas_sp" = c(-47.0616,-22.9064))
-  	var map,tiles,my_marker,my_layer;
-  	var my_icon = L.icon({
-      iconUrl: 'icon2.png',
-      iconSize:     [20, 20],
-      className: 'blinking'
-    });
-  	
-  	
-  	function onError (err) {
-    }
-    
-    function onSuccess (position) {
-      var coords = position.coords;
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type = "text/css" href = "scan_app.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
       
-      if(typeof map == "undefined") {
-        map = L.map('map').setView([coords.latitude, coords.longitude], 16);
-        
-        tiles = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
-        	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        	subdomains: 'abcd',
-        	maxZoom: 16,
-        	tileSize: 512,//512,
-        	zoomOffset: -1,
-        	ext: 'png'
-        }).addTo(map);
-        
-        
-        //tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk//.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-//  		  maxZoom: 18,
-//  		  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> //contributors, ' +
-//  			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-//  		  id: 'mapbox/streets-v11',
-//  		  tileSize: 512,//512,
-//  		  zoomOffset: -1
-//  	    }).addTo(map);
-  	    
-  	    //my_layer = L.leafletGeotiff('SJC_robb_dens2010_2019.tiff');//, options={colorScale: 'rainbow'})//.addTo(map);
-  	    
-  	    my_marker = new L.marker([coords.latitude,coords.longitude], {icon : my_icon});
-  	    my_marker.addTo(map);
-      }
-      else {
-        my_marker.setLatLng([coords.latitude,coords.longitude]);
-        map.panTo([coords.latitude,coords.longitude]);
-      }
-      //if(typeof my_marker == "undefined") {
-      //  my_marker = 0;
-      //}
-    }
-  	//var marker = L.marker([-23.1794400,-45.8869400]).addTo(map)
+  </head>
+  <body>
+    <div id="top_banner">Scan</div>
+    <div id="map"></div>
     
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-  	setInterval(function () {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }, 1000)
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/georaster"></script>
+    <script src="https://unpkg.com/georaster-layer-for-leaflet"></script>
+    <script src="https://unpkg.com/geoblaze"></script>
+    <script src="https://unpkg.com/chroma-js"></script>
+    
+    <script src="scan.js"></script>
   
-  </script>
-
-
-</body>
+  
+  </body>
+</html>

@@ -1,8 +1,16 @@
+html {
+	padding: 0;
+	margin: 0;
+	background-color: E0E0E0;
+	max-width:  100%;
+	min-height: 100%;
+}
 body {
 	padding: 0;
 	margin: 0;
 	background-color: E0E0E0;
-	width:  100%;
+	max-width:  100%;
+	min-height: 100%;
 }
 .top-frame {
 	background-color: 00001A;

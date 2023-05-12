@@ -51,6 +51,7 @@ body {
 	padding-left: 50;
 	padding-right: 70;
 	width: 750;
+	height: auto;
 	background-color: white;
 }
 .bottom-frame {

@@ -3,14 +3,14 @@ html {
 	margin: 0;
 	background-color: E0E0E0;
 	max-width:  100%;
-	min-height: 100%;
+	min-height: 100vh;
 }
 body {
 	padding: 0;
 	margin: 0;
 	background-color: E0E0E0;
 	max-width:  100%;
-	min-height: 100%;
+	min-height: 100vh;
 }
 .top-frame {
 	background-color: 00001A;
@@ -59,6 +59,7 @@ body {
 	padding-bottom: 20;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 0;
 	padding-left: 60;
 	padding-right: 60;
 	width: 750;
